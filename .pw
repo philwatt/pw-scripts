@@ -1,0 +1,41 @@
+#!/bin/bash
+# environment
+#
+export JAVA_HOME='/cygdrive/c/Program Files/Java/jre7'
+#export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11:~/$ergo:$JAVA_HOME:.
+export PATH=/usr/local/opt/ruby/bin:/Users/philwatt/.gem/ruby/2.6.0/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH:/usr/local/Cellar/coreutils/8.28/bin:/usr/local/Cellar/python/2.7.13_1/bin:.
+set -o vi
+#
+# aliases
+#
+alias m='more ';
+alias ls='ls -G '; # colors are useful. to temporarily disable, use: unalias ls
+alias l='ls -lF ';
+alias ll='ls -lAF ';
+alias la='ls -laAF ';
+alias lm='l | m ';
+alias llm='ll | m '
+alias lsd='ls -lAd */ '; # list only directories
+alias lt='l -tr';       # list in reverse order of creation/modified time
+alias g='grep ';
+alias md='mkdir ';
+alias rd='rmdir ';
+alias ..='cd .. ';
+alias rm='rm -i ';
+alias h='history ';
+alias j='jobs ';
+alias k9='kill -9';
+alias d='dirs -l -p -v ';
+
+HISTCONTROL=ignoreboth;
+HISTIGNORE=l:ll:h:rmj:lm:llm:ls:lsa:lsd:lt:d:m
+
+set -o vi
+
+# load rbenv rub environment manager
+#eval "$(rbenv init -)"
+# Ruby exports
+
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+
