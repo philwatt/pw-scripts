@@ -1,8 +1,6 @@
 #!/bin/bash
 # environment
 #
-export JAVA_HOME='/cygdrive/c/Program Files/Java/jre7'
-#export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11:~/$ergo:$JAVA_HOME:.
 export PATH=/usr/local/opt/ruby/bin:/Users/philwatt/.gem/ruby/2.6.0/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH:/usr/local/Cellar/coreutils/8.28/bin:/usr/local/Cellar/python/2.7.13_1/bin:.
 set -o vi
 #
@@ -30,12 +28,10 @@ alias d='dirs -l -p -v ';
 HISTCONTROL=ignoreboth;
 HISTIGNORE=l:ll:h:rmj:lm:llm:ls:lsa:lsd:lt:d:m
 
-set -o vi
+# add bash completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# try a cool prompt
+#PS1='$(if [[ $? == 0 ]]; then printf "\xf0\x9f\x98\x83"; else printf "\xf0\x9f\x98\x9c"; fi)\[\e[0m\] \u \[\e[33m\]\[\e[1m\]\W $ \[\e[0m\]'
+PS1_SET_TITLE='\[\e]0;\u@\h:\w\a\]'
 
-# load rbenv rub environment manager
-#eval "$(rbenv init -)"
-# Ruby exports
-
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-
+PS1="${PS1_SET_TITLE}"'$(if [[ $? == 0 ]]; then printf "👍"; else printf "🔥"; fi)\[\e[0m\] \u \[\e[33m\]\[\e[1m\]\W $ \[\e[0m\]'
